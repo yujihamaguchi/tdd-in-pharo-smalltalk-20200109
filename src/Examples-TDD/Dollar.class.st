@@ -7,6 +7,11 @@ Class {
 	#category : #'Examples-TDD'
 }
 
+{ #category : #comparing }
+Dollar >> = other [
+	^ amount = other amount
+]
+
 { #category : #accessing }
 Dollar >> amount [ 
 	^ amount

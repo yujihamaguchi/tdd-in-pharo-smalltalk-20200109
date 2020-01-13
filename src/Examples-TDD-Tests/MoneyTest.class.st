@@ -5,6 +5,16 @@ Class {
 }
 
 { #category : #tests }
+MoneyTest >> testEquality [
+	self
+		assert: (Dollar new setAmount: 5) = (Dollar new setAmount: 5)
+		equals: true.
+	self
+		assert: (Dollar new setAmount: 5) = (Dollar new setAmount: 6)
+		equals: false
+]
+
+{ #category : #tests }
 MoneyTest >> testMultiplication [
 	| five product |
 	five := Dollar new setAmount: 5.
