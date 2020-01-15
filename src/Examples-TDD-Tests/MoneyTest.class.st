@@ -11,6 +11,12 @@ MoneyTest >> testEquality [
 		equals: true.
 	self
 		assert: (Dollar new setAmount: 5) = (Dollar new setAmount: 6)
+		equals: false.
+	self
+		assert: (Franc new setAmount: 5) = (Franc new setAmount: 5)
+		equals: true.
+	self
+		assert: (Franc new setAmount: 5) = (Franc new setAmount: 6)
 		equals: false
 ]
 

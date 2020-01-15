@@ -1,16 +1,8 @@
 Class {
 	#name : #Franc,
-	#superclass : #Object,
-	#instVars : [
-		'amount'
-	],
+	#superclass : #Money,
 	#category : #'Examples-TDD'
 }
-
-{ #category : #comparing }
-Franc >> = other [
-	^ amount = other amount
-]
 
 { #category : #accessing }
 Franc >> amount [ 
