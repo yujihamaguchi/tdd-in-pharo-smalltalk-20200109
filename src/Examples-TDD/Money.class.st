@@ -9,5 +9,5 @@ Class {
 
 { #category : #comparing }
 Money >> = other [
-	^ amount = other amount
+	^ amount = other amount and: self class = other class
 ]
