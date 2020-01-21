@@ -6,35 +6,25 @@ Class {
 
 { #category : #tests }
 MoneyTest >> testEquality [
-	self
-		assert: (Dollar new setAmount: 5) = (Dollar new setAmount: 5)
-		equals: true.
-	self
-		deny: (Dollar new setAmount: 5) = (Dollar new setAmount: 6)
-		equals: true.
-	self
-		assert: (Franc new setAmount: 5) = (Franc new setAmount: 5)
-		equals: true.
-	self
-		deny: (Franc new setAmount: 5) = (Franc new setAmount: 6)
-		equals: true.
-	self
-		deny: (Franc new setAmount: 5) = (Dollar new setAmount: 5)
-		equals: true
+	self assert: (Money dollar: 5) = (Money dollar: 5) equals: true.
+	self deny: (Money dollar: 5) = (Money dollar: 6) equals: true.
+	self assert: (Money franc: 5) = (Money franc: 5) equals: true.
+	self deny: (Money franc: 5) = (Money franc: 6) equals: true.
+	self deny: (Money franc: 5) = (Money dollar: 5) equals: true
 ]
 
 { #category : #tests }
 MoneyTest >> testFrancMultiplication [
 	| five |
-	five := Franc new setAmount: 5.
-	self assert: (five times: 2) equals: (Franc new setAmount: 10).
-	self assert: (five times: 3) equals: (Franc new setAmount: 15)
+	five := Money franc: 5.
+	self assert: (five times: 2) equals: (Money franc: 10).
+	self assert: (five times: 3) equals: (Money franc: 15)
 ]
 
 { #category : #tests }
 MoneyTest >> testMultiplication [
 	| five |
-	five := Dollar new setAmount: 5.
-	self assert: (five times: 2) equals: (Dollar new setAmount: 10).
-	self assert: (five times: 3) equals: (Dollar new setAmount: 15)
+	five := Money dollar: 5.
+	self assert: (five times: 2) equals: (Money dollar: 10).
+	self assert: (five times: 3) equals: (Money dollar: 15)
 ]
