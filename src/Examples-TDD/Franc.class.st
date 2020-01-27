@@ -9,13 +9,7 @@ Franc >> amount [
 	^ amount
 ]
 
-{ #category : #initialization }
-Franc >> setAmount: anInteger [
-	amount := anInteger.
-	^ self
-]
-
 { #category : #arithmetic }
 Franc >> times: aMultiplier [
-	^ Franc new setAmount: amount * aMultiplier
+	^ Money franc: amount * aMultiplier
 ]
