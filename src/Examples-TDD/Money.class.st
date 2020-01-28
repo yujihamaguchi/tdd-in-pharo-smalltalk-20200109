@@ -20,12 +20,22 @@ Money class >> franc: anAmount [
 
 { #category : #comparing }
 Money >> = other [
-	^ amount = other amount and: self class = other class
+	^ amount = other amount and: currency = other currency 
+]
+
+{ #category : #accessing }
+Money >> amount [ 
+	^ amount
 ]
 
 { #category : #accessing }
 Money >> currency [
 	^ currency.
+]
+
+{ #category : #printing }
+Money >> printString [
+	^ amount asString , ' ' , currency
 ]
 
 { #category : #initialization }
@@ -37,5 +47,5 @@ Money >> setAmount: anInteger currency: aString [
 
 { #category : #arithmetic }
 Money >> times: aMultiplier [
-	^ self subclassResponsibility 
+	^ Money new setAmount: amount * aMultiplier currency: currency
 ]
