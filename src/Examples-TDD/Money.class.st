@@ -10,12 +10,12 @@ Class {
 
 { #category : #'instance creation' }
 Money class >> dollar: anAmount [
-	^ Dollar new setAmount: anAmount currency: 'USD'
+	^ Money new setAmount: anAmount currency: 'USD'
 ]
 
 { #category : #'instance creation' }
 Money class >> franc: anAmount [
-	^ Franc new setAmount: anAmount currency: 'CHF'
+	^ Money new setAmount: anAmount currency: 'CHF'
 ]
 
 { #category : #comparing }

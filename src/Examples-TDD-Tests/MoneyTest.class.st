@@ -11,25 +11,10 @@ MoneyTest >> testCurrency [
 ]
 
 { #category : #tests }
-MoneyTest >> testDifferentClassEquality [
-	self assert: (Money new setAmount: 10 currency: 'CHF') equals: (Franc new setAmount: 10 currency: 'CHF')
-]
-
-{ #category : #tests }
 MoneyTest >> testEquality [
 	self assert: (Money dollar: 5) = (Money dollar: 5) equals: true.
 	self deny: (Money dollar: 5) = (Money dollar: 6) equals: true.
-	self assert: (Money franc: 5) = (Money franc: 5) equals: true.
-	self deny: (Money franc: 5) = (Money franc: 6) equals: true.
 	self deny: (Money franc: 5) = (Money dollar: 5) equals: true
-]
-
-{ #category : #tests }
-MoneyTest >> testFrancMultiplication [
-	| five |
-	five := Money franc: 5.
-	self assert: (five times: 2) equals: (Money franc: 10).
-	self assert: (five times: 3) equals: (Money franc: 15)
 ]
 
 { #category : #tests }
