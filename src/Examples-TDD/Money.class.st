@@ -33,6 +33,11 @@ Money >> currency [
 	^ currency.
 ]
 
+{ #category : #arithmetic }
+Money >> plus: anAddend [
+	^ Money new setAmount: (amount + anAddend amount)  currency: currency 
+]
+
 { #category : #printing }
 Money >> printString [
 	^ amount asString , ' ' , currency
