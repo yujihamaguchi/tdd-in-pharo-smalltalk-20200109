@@ -6,5 +6,5 @@ Class {
 
 { #category : #converting }
 Bank >> reduce: anExpression to: aCurrency [
-	^ Money dollar: 10
+	^ (anExpression reducedTo: aCurrency)
 ]

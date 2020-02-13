@@ -35,12 +35,17 @@ Money >> currency [
 
 { #category : #arithmetic }
 Money >> plus: anAddend [
-	^ Money new setAmount: (amount + anAddend amount)  currency: currency 
+	^ Sum new setAugend: self addend: anAddend
 ]
 
 { #category : #printing }
 Money >> printString [
 	^ amount asString , ' ' , currency
+]
+
+{ #category : #converting }
+Money >> reducedTo: aCurrency [
+	^ self
 ]
 
 { #category : #initialization }

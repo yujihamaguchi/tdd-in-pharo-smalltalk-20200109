@@ -26,6 +26,31 @@ MoneyTest >> testMultiplication [
 ]
 
 { #category : #tests }
+MoneyTest >> testPlusReturnsSum [
+	| sum |
+	sum := (Money dollar: 4) plus: (Money dollar: 6).
+	self assert: sum augend equals: (Money dollar: 4).
+	self assert: sum addend equals: (Money dollar: 6)
+]
+
+{ #category : #tests }
+MoneyTest >> testReduceMoney [
+	| bank reduced |
+	bank := Bank new.
+	reduced := bank reduce: (Money dollar: 1) to: 'USD'.
+	self assert: reduced equals: (Money dollar: 1)
+]
+
+{ #category : #tests }
+MoneyTest >> testReduceSum [
+	| sum bank reduced |
+	sum := (Money dollar: 3) plus: (Money dollar: 4).
+	bank := Bank new.
+	reduced := bank reduce: sum to: 'USD'.
+	self assert: reduced equals: (Money dollar: 7)
+]
+
+{ #category : #tests }
 MoneyTest >> testSimpleAddtion [
 	| five sum bank reduced |
 	five := Money dollar: 5.
