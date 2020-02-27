@@ -44,8 +44,10 @@ Money >> printString [
 ]
 
 { #category : #converting }
-Money >> reducedTo: aCurrency [
-	^ self
+Money >> reducedTo: toCurrency at: aBank [
+	| rate |
+	rate := aBank rateFrom: self currency to: toCurrency.
+	^ Money new setAmount: self amount / rate currency: toCurrency
 ]
 
 { #category : #initialization }

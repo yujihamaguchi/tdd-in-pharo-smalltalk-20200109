@@ -18,6 +18,11 @@ MoneyTest >> testEquality [
 ]
 
 { #category : #tests }
+MoneyTest >> testIdentityRate [
+	self assert: (Bank new rateFrom: 'USD' to: 'USD') equals: 1
+]
+
+{ #category : #tests }
 MoneyTest >> testMultiplication [
 	| five |
 	five := Money dollar: 5.
@@ -48,6 +53,15 @@ MoneyTest >> testReduceSum [
 	bank := Bank new.
 	reduced := bank reduce: sum to: 'USD'.
 	self assert: reduced equals: (Money dollar: 7)
+]
+
+{ #category : #tests }
+MoneyTest >> testResuceMoneyDifferentCurrency [
+	| bank reduced |
+	bank := Bank new.
+	bank addRate: 2 from: 'CHF' to: 'USD'.
+	reduced := bank reduce: (Money franc: 2) to: 'USD'.
+	self assert: reduced equals: (Money dollar: 1)
 ]
 
 { #category : #tests }

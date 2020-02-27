@@ -18,8 +18,8 @@ Sum >> augend [
 	^ augend 
 ]
 
-{ #category : #'as yet unclassified' }
-Sum >> reducedTo: aCurrency [
+{ #category : #converting }
+Sum >> reducedTo: aCurrency at: aBank [
 	| amount |
 	amount := augend amount + addend amount.
 	^ Money new setAmount: amount currency: aCurrency
