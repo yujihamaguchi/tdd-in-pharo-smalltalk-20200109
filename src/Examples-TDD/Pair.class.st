@@ -10,7 +10,7 @@ Class {
 
 { #category : #comparing }
 Pair >> = aPair [
-	^ self from = aPair from and: (self to = aPair to)
+	^ self from = aPair from and: self to = aPair to
 ]
 
 { #category : #accessing }

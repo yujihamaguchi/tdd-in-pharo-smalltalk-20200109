@@ -21,7 +21,8 @@ Sum >> augend [
 { #category : #converting }
 Sum >> reducedTo: aCurrency at: aBank [
 	| amount |
-	amount := augend amount + addend amount.
+	amount := (augend reducedTo: aCurrency at: aBank) amount
+		+ (addend reducedTo: aCurrency at: aBank) amount.
 	^ Money new setAmount: amount currency: aCurrency
 ]
 
