@@ -83,3 +83,26 @@ MoneyTest >> testSimpleAddtion [
 	reduced := bank reduce: sum to: 'USD'.
 	self assert: reduced equals: (Money dollar: 10)
 ]
+
+{ #category : #tests }
+MoneyTest >> testSumPlusMoney [
+	| fiveBucks tenFrancs sum bank reduced |
+	fiveBucks := Money dollar: 5.
+	tenFrancs := Money franc: 10.
+	sum := (Sum new setAugend: fiveBucks addend: tenFrancs)
+		plus: fiveBucks.
+	bank := Bank new.
+	bank addRate: 2 from: 'CHF' to: 'USD'.
+	reduced := bank reduce: sum to: 'USD'.
+	self assert: reduced equals: (Money dollar: 15)
+]
+
+{ #category : #tests }
+MoneyTest >> testSumTimes [
+	| sum bank reduced |
+	sum := Sum new setAugend: (Money dollar: 5) addend: (Money franc: 10).
+	bank := Bank new.
+	bank addRate: 2 from: 'CHF' to: 'USD'.
+	reduced := bank reduce: (sum times: 2) to: 'USD'.
+	self assert: reduced equals: (Money dollar: 20)
+]
